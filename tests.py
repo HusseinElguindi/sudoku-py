@@ -1,3 +1,5 @@
+# Hussein Elguindi
+
 from sudoku import SudokuTable
 
 def test():
@@ -60,26 +62,8 @@ def test():
     st = SudokuTable(table)
     assert not st.validatePos((4, 4), 1), "Failed to validate box position"
 
-    table = [
-        [7, 8, 0, 4, 0, 0, 1, 2, 0],
-        [6, 0, 0, 0, 7, 5, 0, 0, 9],
-        [0, 0, 0, 6, 0, 1, 0, 7, 8],
-        [0, 0, 7, 0, 4, 0, 2, 6, 0],
-        [0, 0, 1, 0, 5, 0, 9, 3, 0],
-        [9, 0, 4, 0, 6, 0, 0, 0, 5],
-        [0, 7, 0, 3, 0, 0, 0, 1, 2],
-        [1, 2, 0, 0, 0, 7, 4, 0, 0],
-        [0, 4, 9, 2, 0, 6, 0, 0, 7]
-    ]
-    st = SudokuTable(table)
-    st.prettyPrint()
-    print(st.solve())
-    st.prettyPrint()
 
-
-    print()
-
-
+    # "Hardest sudoku puzzle in the world"
     table = [
         [8, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 3, 6, 0, 0, 0, 0, 0],
@@ -93,7 +77,26 @@ def test():
     ]
     st = SudokuTable(table)
     st.prettyPrint()
-    print(st.solve())
+    print("Solved:", st.solve())
+    st.prettyPrint()
+
+    print()
+
+    # Sudoku.com expert level
+    table = [
+        [8, 0, 0, 4, 0, 0, 9, 1, 0],
+        [0, 0, 3, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 3, 0, 0, 4],
+        [0, 0, 0, 0, 0, 1, 0, 4, 0],
+        [0, 5, 8, 0, 0, 0, 7, 0, 0],
+        [0, 7, 0, 0, 0, 6, 8, 0, 0],
+        [0, 0, 0, 0, 0, 2, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 6, 0],
+        [9, 1, 0, 0, 6, 0, 5, 0, 0]
+    ]
+    st = SudokuTable(table)
+    st.prettyPrint()
+    print("Solved:", st.solve())
     st.prettyPrint()
 
 test()
