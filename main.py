@@ -25,7 +25,8 @@ def main():
     st = SudokuTable(table, boxWidth, boxHeight)
     st.prettyPrint()
     print()
-    print("Solved:", st.solve(), end="\n\n")
+    # print("Solved:", st.solve(), end="\n\n")
+    print(st.solveVerbose())
     st.prettyPrint()
 
 main()

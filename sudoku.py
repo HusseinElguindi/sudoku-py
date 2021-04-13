@@ -17,6 +17,9 @@ class SudokuTable:
         self._boxWidth = int(sqrt(self._width)) if boxWidth == None else boxWidth
         self._boxHeight = int(sqrt(self._height)) if boxHeight == None else boxHeight
 
+        # EXPERIMENTAL
+        self._backtracks = 0
+
 
     # Return a copy of the internal table
     def getTable(self) -> list:
@@ -80,6 +83,33 @@ class SudokuTable:
 
         # None of the numbers in the range were valid
         return False
+
+
+    def solveVerbose(self) -> tuple:
+        # self._backtracks = 0
+        self._backtracks = self._backtracks + 1
+
+        # Get the next empty position, or if none are left
+        emptyPos = self._nextEmptyPos()
+        if len(emptyPos) == 0: return (True, self._backtracks)
+        row, col = emptyPos
+
+        # Loop through the range of possible numbers
+        for i in range(1, self._width+1):
+            # Validate the number at a position
+            if self.validatePos(emptyPos, i):
+                # Set the valid number to pos
+                self._table[row][col] = i
+
+                # If solved return true (base case)
+                if self.solveVerbose()[0]: return (True, self._backtracks)
+
+            # Back track
+            self._table[row][col] = 0
+
+        # None of the numbers in the range were valid
+        return (False, self._backtracks)
+
 
 
     # Find the next empty position

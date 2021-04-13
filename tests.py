@@ -99,4 +99,21 @@ def test():
     print("Solved:", st.solve())
     st.prettyPrint()
 
+
+    table = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+    st = SudokuTable(table)
+    st.prettyPrint()
+    print("Generated:", st.solveVerbose())
+    st.prettyPrint()
+
 test()
